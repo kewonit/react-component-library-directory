@@ -3,7 +3,7 @@
 import { Component } from "@/types";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 interface ComponentCardProps {
   component: Component;
@@ -120,24 +120,20 @@ export default function ComponentCard({ component }: ComponentCardProps) {
           )}
         </div>
         
-        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-          <div className="bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow-sm">
-            <ExternalLink className="w-3.5 h-3.5 text-gray-700" />
-          </div>
-        </div>
-
-        {/* removed featured badge per request */}
       </div>
 
-      <div className="py-3 px-1">
-        <h3 className="text-sm font-semibold text-gray-900 group-hover:text-gray-700 transition-colors line-clamp-1">
-          {component.name}
-        </h3>
-        <p className="text-xs text-gray-500 mt-0.5 line-clamp-1">
-          {component.tags.length > 0
-            ? component.tags.slice(0, 3).join(" · ")
-            : "React library"}
-        </p>
+      <div className="py-3 px-1 flex items-center justify-between">
+        <div className="flex-1 pr-2">
+          <h3 className="text-sm font-semibold text-gray-900 group-hover:text-gray-700 transition-colors line-clamp-1">
+            {component.name}
+          </h3>
+          <p className="text-xs text-gray-500 mt-0.5 line-clamp-1">
+            {component.tags.length > 0
+              ? component.tags.slice(0, 3).join(" · ")
+              : "React library"}
+          </p>
+        </div>
+        <ArrowUpRight className="w-5 h-5 text-gray-500 flex-shrink-0 transition-transform duration-500 group-hover:rotate-[360deg]" />
       </div>
     </article>
   );

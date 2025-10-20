@@ -86,7 +86,7 @@ export default function Home() {
                     <button
                       key={category.id}
                       onClick={() => handleCategoryClick(category.id)}
-                      className={`inline-flex items-center gap-1.5 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition-all duration-200 ${selectedCategory === category.id
+                      className={`inline-flex items-center gap-2 rounded-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-sm font-medium transition-all duration-200 ${selectedCategory === category.id
                           ? "bg-gray-900 text-white shadow-sm"
                           : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900"
                         }`}
@@ -95,7 +95,7 @@ export default function Home() {
                       {category.name}
                       {count > 0 && (
                         <span
-                          className={`text-[10px] sm:text-xs tabular-nums ${selectedCategory === category.id
+                          className={`text-xs sm:text-xs tabular-nums ${selectedCategory === category.id
                               ? "text-white/70"
                               : "text-gray-500"
                             }`}
@@ -109,13 +109,13 @@ export default function Home() {
               </div>
 
               <div className="relative w-full sm:w-64">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 sm:w-4 sm:h-4 text-gray-400 pointer-events-none" />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search libraries..."
-                  className="w-full h-9 pl-9 pr-3 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all placeholder:text-gray-400"
+                  className="w-full h-11 sm:h-9 pl-11 sm:pl-9 pr-3 text-sm sm:text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all placeholder:text-gray-400"
                   aria-label="Search libraries"
                 />
               </div>
@@ -161,11 +161,13 @@ export default function Home() {
               </div>
 
               {filteredComponents.length > 0 && (
-                <div className="mt-4 sm:mt-6 py-6 sm:py-8 text-center">
-                  <p className="text-xs sm:text-sm text-gray-500">
-                    Showing {filteredComponents.length} of {components.length}{" "}
-                    {filteredComponents.length === 1 ? "library" : "libraries"}
-                  </p>
+                <div className="mt-4 sm:mt-6 py-6 sm:py-8">
+                  <div className="flex justify-end">
+                    <p className="text-xs sm:text-sm text-gray-500 text-right">
+                      Showing {filteredComponents.length} of {components.length}{" "}
+                      {filteredComponents.length === 1 ? "library" : "libraries"}
+                    </p>
+                  </div>
                 </div>
               )}
             </>
