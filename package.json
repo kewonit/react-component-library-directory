@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "dev:trace": "set NEXT_TURBOPACK_TRACING=1; next dev --turbopack",
     "build": "next build --turbopack",
-    "start": "next start"
+  "start": "next start",
+  "build:trace": "set NEXT_TURBOPACK_TRACING=1; next build --turbopack"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

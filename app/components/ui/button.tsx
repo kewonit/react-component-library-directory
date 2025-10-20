@@ -25,6 +25,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       icon: "h-10 w-10",
     };
 
+    React.useEffect(() => {
+      if (size === "icon" && !props['aria-label']) {
+        console.warn('Accessible icon buttons require an `aria-label` prop');
+      }
+    }, [size, props]);
     return (
       <button
         className={cn(

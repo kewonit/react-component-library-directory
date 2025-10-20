@@ -6,6 +6,11 @@ export interface InputProps
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
+    React.useEffect(() => {
+      if (!props.id && !props['aria-label']) {
+        console.warn('Input components require either an `id` or `aria-label` for accessibility');
+      }
+    }, [props]);
     return (
       <input
         type={type}
